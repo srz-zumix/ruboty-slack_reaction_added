@@ -1,0 +1,10 @@
+version: '2'
+services:
+  ruboty:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    command: ./run.sh
+    environment:
+      TZ: Asia/Tokyo    
