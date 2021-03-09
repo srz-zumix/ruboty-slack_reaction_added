@@ -1,3 +1,7 @@
+ifeq (,$(wildcard ./.env))
+include .env
+endif
+
 #
 # help
 #

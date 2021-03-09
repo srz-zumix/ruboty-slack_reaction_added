@@ -5,9 +5,7 @@ RUN apk update && apk upgrade \
 
 WORKDIR /usr/src/ruboty
 
-COPY Gemfile Gemfile.lock ./
-RUN bundle install
-
 COPY . .
+RUN bundle install
 
 CMD ["./run.sh"]

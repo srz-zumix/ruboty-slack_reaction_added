@@ -4,5 +4,8 @@ source 'https://rubygems.org'
 gemspec
 
 group :development, :test do
+  gem "ruboty"
+  gem "ruboty-slack_rtm"
+
   gem 'ruboty-echo'
 end
