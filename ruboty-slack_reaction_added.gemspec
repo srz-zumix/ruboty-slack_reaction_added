@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = Ruboty::SlackReactionAdded::VERSION
   spec.authors       = ['srz_zumix']
   spec.email         = ['']
-  spec.summary       = 'Slack reaction added extention for Ruboty'
+  spec.summary       = 'Slack reaction added extension for Ruboty'
   spec.description   = spec.summary
   spec.homepage      = 'https://github.com/srz-zumix/ruboty-slack_reaction_added'
   spec.license       = 'MIT'
