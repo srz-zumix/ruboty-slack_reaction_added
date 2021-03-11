@@ -9,8 +9,7 @@ module Ruboty
       end
 
       def permalink
-        permalink = @client.chat_getPermalink(channel: @original[:channel]["id"], message_ts: @original[:ts])
-        permalink['permalink']
+        robot.permalink(@original[:channel]["id"], @original[:ts])
       end
 
       def reaction

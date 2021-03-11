@@ -71,6 +71,11 @@ module Ruboty
             resp['channel']
           end
         end
+
+        def permalink(channel_id, ts)
+          permalink = @client.chat_getPermalink(channel: channel_id, message_ts: ts)
+          permalink['permalink']
+        end
       end
 
       prepend ReactionAddedSlackRTM
