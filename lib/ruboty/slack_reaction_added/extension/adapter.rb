@@ -8,8 +8,6 @@ module Ruboty
           channel = data['item']['channel']
           histories = @client.conversations_history(channel: channel, latest: data['item']['ts'], inclusive: true, limit: 1)
           message = histories['messages'][0]
-          permalink = @client.chat_getPermalink(channel: channel, message_ts: data['item']['ts'])
-          message['permalink'] = permalink['permalink']
           message['channel'] = channel
           message['reaction_added'] = data
           # Ruboty.logger.info message
@@ -58,6 +56,19 @@ module Ruboty
             unless body.empty?
               robot.receive(message_info.merge(body: body, mention_to: body_mention_to))
             end
+          end
+        end
+
+        def channel_info(channel_id)
+          @channel_info_caches[channel_id] ||= begin
+            resp = case channel_id
+              when /^C/, /^D/, /^G/
+                client.conversations_info(channel: channel_id)
+              else
+                {}
+              end
+
+            resp['channel']
           end
         end
       end

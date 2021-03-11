@@ -8,6 +8,11 @@ module Ruboty
         robot.add_reaction(reaction, channel_id, timestamp)
       end
 
+      def permalink
+        permalink = @client.chat_getPermalink(channel: @original[:channel]["id"], message_ts: @original[:ts])
+        permalink['permalink']
+      end
+
       def reaction
         @original[:reaction]
       end
