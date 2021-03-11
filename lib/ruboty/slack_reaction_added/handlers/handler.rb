@@ -1,4 +1,5 @@
 require 'ruboty/slack_reaction_added/actions/permalink.rb'
+require 'ruboty/slack_reaction_added/actions/reaction_name.rb'
 require 'ruboty/slack_reaction_added/actions/reaction_ping.rb'
 require 'ruboty/slack_reaction_added/actions/thumbup.rb'
 
@@ -11,6 +12,11 @@ module Ruboty
           name: 'reaction_able_ping',
           description: 'ping allow reaction',
           allow_reaction: true
+
+        on /reaction name\z/,
+          name: 'reaction_name',
+          description: 'reaction name say on readciont_added',
+          reaction_only: true
 
         on /.*\z/,
           name: 'thumbup',
@@ -26,6 +32,10 @@ module Ruboty
 
         def reaction_able_ping(message)
           Ruboty::SlackReactionAdded::Actions::ReactionPing.new(message).call
+        end
+
+        def reaction_name(message)
+          Ruboty::SlackReactionAdded::Actions::ReactionName.new(message).call
         end
 
         def thumbup(message)
