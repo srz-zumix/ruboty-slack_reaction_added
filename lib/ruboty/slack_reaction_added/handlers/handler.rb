@@ -8,7 +8,7 @@ module Ruboty
     module Handlers
       class Handler < Ruboty::Handlers::Base
 
-        on /ping\z/,
+        on /reaction ping\z/,
           name: 'reaction_able_ping',
           description: 'ping allow reaction',
           allow_reaction: true
@@ -18,13 +18,13 @@ module Ruboty
           description: 'reaction name say on readciont_added',
           reaction_only: true
 
-        on /.*\z/,
+        on /.*\z/m,
           name: 'thumbup',
           description: 'thumbup',
           reaction_only: true,
           all: true
 
-        on /.*\z/,
+        on /.*\z/m,
           name: 'permalink',
           description: 'permalink',
           reaction_only: true,
