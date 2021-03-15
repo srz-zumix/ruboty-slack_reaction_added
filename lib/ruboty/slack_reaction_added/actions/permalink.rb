@@ -5,9 +5,11 @@ module Ruboty
       class Permalink < Ruboty::Actions::Base
 
         def call
-          case message.reaction
-          when 'bookmark'
-            message.reply(message.permalink)
+          unless message.reaction_by == message.robot.name
+            case message.reaction
+            when 'bookmark'
+              message.reply(message.permalink)
+            end
           end
         end
 

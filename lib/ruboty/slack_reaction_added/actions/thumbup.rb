@@ -7,7 +7,7 @@ module Ruboty
         def call
           # Ruboty.logger.info message.reaction
           # Ruboty.logger.info message.reaction_by
-          unless message.reaction_by == Ruboty::Robot.name
+          unless message.reaction_by == message.robot.name
             case message.reaction
             when '+1'
               message.add_reaction('thumbsup')

@@ -5,7 +5,7 @@ module Ruboty
       class ReactionName < Ruboty::Actions::Base
 
         def call
-          unless message.reaction_by == Ruboty::Robot.name
+          unless message.reaction_by == message.robot.name
             message.reply(":#{message.reaction}: => `:#{message.reaction}:`")
           end
         end

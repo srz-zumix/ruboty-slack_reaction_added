@@ -5,7 +5,9 @@ module Ruboty
       class ReactionPing < Ruboty::Actions::Base
 
         def call
-          message.reply('pong')
+          unless message.reaction_by == message.robot.name
+            message.reply('pong')
+          end
         end
 
       end
